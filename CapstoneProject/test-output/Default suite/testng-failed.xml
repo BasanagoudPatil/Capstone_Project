@@ -5,8 +5,8 @@
     <classes>
       <class name="com.CapstoneProject.CapstoneProject.search">
         <methods>
+          <include name="validsearch"/>
           <include name="driver"/>
-          <include name="sendkeys"/>
           <include name="close"/>
         </methods>
       </class> <!-- com.CapstoneProject.CapstoneProject.search -->

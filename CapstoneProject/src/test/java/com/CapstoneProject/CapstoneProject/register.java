@@ -41,6 +41,7 @@ public class register extends baseclass{
 		else {
 			System.out.println("Registration failed");
 		}
+		
 	}
 
 }

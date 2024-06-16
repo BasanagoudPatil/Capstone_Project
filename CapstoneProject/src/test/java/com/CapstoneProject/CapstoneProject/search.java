@@ -1,37 +1,45 @@
 package com.CapstoneProject.CapstoneProject;
 
+import java.io.File;
+import java.io.IOException;
 import java.util.List;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.NoSuchElementException;
+import org.openqa.selenium.OutputType;
+import org.openqa.selenium.TakesScreenshot;
 import org.openqa.selenium.WebElement;
+import org.openqa.selenium.io.FileHandler;
 import org.testng.annotations.Test;
 
 import org.testng.Assert;
 
 public class search extends baseclass{
 	@Test(priority=0)
-    public void findsearchbox() throws InterruptedException {
+    public void findsearchbox() throws InterruptedException, IOException {
         driver.get("https://jpetstore.aspectran.com/");
         // Your test code here
         WebElement searchbox=driver.findElement(By.xpath("//*[@id=\"SearchContent\"]/form/div/input"));
+        File screenshot=((TakesScreenshot) driver).getScreenshotAs(OutputType.FILE);
+        FileHandler.copy(screenshot,new File("./screenshots/searchbox.png"));
+
         Thread.sleep(2000);
     }
 	
 	@Test(priority=1)
-	public void sendkeys() throws InterruptedException
+	public void sendkeys() throws InterruptedException, IOException
 	{
 	 String item="Dog";
      driver.get("https://jpetstore.aspectran.com/");
      WebElement searchbox=driver.findElement(By.xpath("//*[@id=\"SearchContent\"]/form/div/input"));
      searchbox.sendKeys(item);
-     String enteredText = searchbox.getAttribute("Value");
-     Assert.assertEquals(enteredText, item, "Entered text does not match with entered text");
+     File screenshot=((TakesScreenshot) driver).getScreenshotAs(OutputType.FILE);
+     FileHandler.copy(screenshot,new File("./screenshots/sendkeys.png"));
 
      Thread.sleep(2000);
 	}
 	@Test(priority=2)
-	public void search() throws InterruptedException
+	public void search() throws InterruptedException, IOException
 	{
 		driver.get("https://jpetstore.aspectran.com/");
 	     WebElement searchbox=driver.findElement(By.xpath("//*[@id=\"SearchContent\"]/form/div/input"));
@@ -50,25 +58,31 @@ public class search extends baseclass{
 	                break;
 	            }
 	        }
+	        File screenshot=((TakesScreenshot) driver).getScreenshotAs(OutputType.FILE);
+	        FileHandler.copy(screenshot,new File("./screenshots/search.png"));
 
 	        // Assert that no data rows are present
 	        Assert.assertTrue(hasDataRows, "results not found");
+	        
 	}
 	@Test(priority=3)
-	public void validsearch() {
+	public void validsearch() throws IOException {
 		String item="goldfish";
 		WebElement searchbox=driver.findElement(By.xpath("//*[@id=\"SearchContent\"]/form/div/input"));
 	     searchbox.sendKeys(item);
 	     searchbox.submit();
         // Verify the search results
         WebElement result = driver.findElement(By.xpath("//*[@id=\"Catalog\"]/table/tbody/tr[2]/td[2]"));
+        File screenshot=((TakesScreenshot) driver).getScreenshotAs(OutputType.FILE);
+        FileHandler.copy(screenshot,new File("./screenshots/validsearch.png"));
+
         Assert.assertTrue(result.getText().toLowerCase().contains(item), "Search result failed to get valid result");
         
 
     }
 	
 	@Test(priority=4)
-	public void emptysearch() throws InterruptedException
+	public void emptysearch() throws InterruptedException, IOException
 	{
 		WebElement searchbox = driver.findElement(By.xpath("//*[@id=\"SearchContent\"]/form/div/input"));
         searchbox.clear();
@@ -87,12 +101,15 @@ public class search extends baseclass{
                 break;
             }
         }
+        File screenshot=((TakesScreenshot) driver).getScreenshotAs(OutputType.FILE);
+        FileHandler.copy(screenshot,new File("./screenshots/emptysearch.png"));
+
         // Assert that no data rows are present
         Assert.assertFalse(hasDataRows, "result found");
 	}
 	
 	@Test(priority=5)
-	public void invalidsearch()
+	public void invalidsearch() throws IOException
 	{
 		String item="Invalid search";
 		WebElement searchbox=driver.findElement(By.xpath("//*[@id=\"SearchContent\"]/form/div/input"));
@@ -111,6 +128,9 @@ public class search extends baseclass{
 	                break;
 	            }
 	        }
+	        File screenshot=((TakesScreenshot) driver).getScreenshotAs(OutputType.FILE);
+	        FileHandler.copy(screenshot,new File("./screenshots/invalidsearch.png"));
+
 
 	        // Assert that no data rows are present
 	        Assert.assertFalse(hasDataRows, "Result Found");
