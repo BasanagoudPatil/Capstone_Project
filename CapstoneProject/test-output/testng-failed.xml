@@ -3,13 +3,17 @@
 <suite name="Failed suite [Default suite]" guice-stage="DEVELOPMENT">
   <test thread-count="5" name="Default test(failed)">
     <classes>
-      <class name="com.CapstoneProject.CapstoneProject.search">
+      <class name="com.CapstoneProject.CapstoneProject.register">
         <methods>
-          <include name="validsearch"/>
-          <include name="driver"/>
+          <include name="beforeMethod"/>
+          <include name="invalidRegistration"/>
+          <include name="close1"/>
+          <include name="afterMethod"/>
+          <include name="setup"/>
+          <include name="registerNewUser"/>
           <include name="close"/>
         </methods>
-      </class> <!-- com.CapstoneProject.CapstoneProject.search -->
+      </class> <!-- com.CapstoneProject.CapstoneProject.register -->
     </classes>
   </test> <!-- Default test(failed) -->
 </suite> <!-- Failed suite [Default suite] -->

@@ -27,6 +27,8 @@ public class baseclass {
 
         System.setProperty("webdriver.chrome.driver", "D:/Wipro/Project/driver/chromedriver-win64/chromedriver.exe");
         driver=new ChromeDriver();
+        driver.navigate().to("https://jpetstore.aspectran.com/");
+
         driver.manage().window().maximize();
         driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(10));  
     }
