@@ -6,10 +6,10 @@
       <class name="com.CapstoneProject.CapstoneProject.payment">
         <methods>
           <include name="beforeMethod"/>
-          <include name="afterMethod"/>
+          <include name="testOrderProcess"/>
           <include name="setup"/>
+          <include name="afterMethod"/>
           <include name="close"/>
-          <include name="testPaymentDetails"/>
         </methods>
       </class> <!-- com.CapstoneProject.CapstoneProject.payment -->
     </classes>

@@ -59,7 +59,6 @@ public class productdetails extends baseclass{
         // Check stock status
       //  WebElement stock = driver.findElement(By.cssSelector("#CenterForm > table > tbody > tr:nth-child(4) > td"));
         //Assert.assertTrue(stock.getText().contains(expectedStock), "Stock status does not match");
-        System.out.println("dvghdv");
 
         
         System.out.println(itemID + " Successfully Displayed");
