@@ -1,9 +1,14 @@
 package com.CapstoneProject.CapstoneProject;
 
+import java.io.File;
+import java.io.IOException;
 import java.time.Duration;
 
+import org.openqa.selenium.OutputType;
+import org.openqa.selenium.TakesScreenshot;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.io.FileHandler;
 import org.testng.annotations.AfterClass;
 import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeClass;
@@ -21,27 +26,25 @@ public class baseclass {
 
     @BeforeClass
     public void setup() {
-        ExtentSparkReporter spark=new ExtentSparkReporter("./extent-reports/extent-report.html");
-        extent=new ExtentReports();
+        ExtentSparkReporter spark = new ExtentSparkReporter("./extent-reports/extent-report.html");
+        extent = new ExtentReports();
         extent.attachReporter(spark);
 
         System.setProperty("webdriver.chrome.driver", "D:/Wipro/Project/driver/chromedriver-win64/chromedriver.exe");
-        driver=new ChromeDriver();
+        driver = new ChromeDriver();
         driver.navigate().to("https://jpetstore.aspectran.com/");
 
         driver.manage().window().maximize();
-        driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(10));  
+        driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(10));
     }
-    
+
     @BeforeMethod
-    public void beforeMethod() 
-    {
-        test=extent.createTest("Test Case: "+this.getClass().getName());
+    public void beforeMethod() {
+        test = extent.createTest("Test Case: " + this.getClass().getName());
     }
 
     @AfterMethod
-    public void afterMethod() 
-    {
+    public void afterMethod() {
         extent.flush();
     }
 
@@ -49,5 +52,10 @@ public class baseclass {
     public void close() {
         driver.quit();
         extent.flush();
+    }
+
+    public void takeScreenshot(String fileName) throws IOException {
+        File screenshot = ((TakesScreenshot) driver).getScreenshotAs(OutputType.FILE);
+        FileHandler.copy(screenshot, new File("./screenshots/" + fileName + ".png"));
     }
 }

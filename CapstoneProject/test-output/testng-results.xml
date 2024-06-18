@@ -1,49 +1,81 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testng-results ignored="0" total="2" passed="2" failed="0" skipped="0">
+<testng-results ignored="0" total="5" passed="5" failed="0" skipped="0">
   <reporter-output>
   </reporter-output>
-  <suite started-at="2024-06-17T08:20:23 IST" name="Default suite" finished-at="2024-06-17T08:21:05 IST" duration-ms="42073">
+  <suite started-at="2024-06-17T16:27:54 IST" name="Default suite" finished-at="2024-06-17T16:29:03 IST" duration-ms="69273">
     <groups>
     </groups>
-    <test started-at="2024-06-17T08:20:23 IST" name="Default test" finished-at="2024-06-17T08:21:05 IST" duration-ms="42073">
-      <class name="com.CapstoneProject.CapstoneProject.register">
-        <test-method is-config="true" signature="setup()[pri:0, instance:com.CapstoneProject.CapstoneProject.register@24c22fe]" started-at="2024-06-17T08:20:23 IST" name="setup" finished-at="2024-06-17T08:20:28 IST" duration-ms="5498" status="PASS">
+    <test started-at="2024-06-17T16:27:54 IST" name="Default test" finished-at="2024-06-17T16:29:03 IST" duration-ms="69273">
+      <class name="com.CapstoneProject.CapstoneProject.login">
+        <test-method is-config="true" signature="setup()[pri:0, instance:com.CapstoneProject.CapstoneProject.login@7ba8c737]" started-at="2024-06-17T16:27:54 IST" name="setup" finished-at="2024-06-17T16:28:02 IST" duration-ms="8323" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- setup -->
-        <test-method is-config="true" signature="beforeMethod()[pri:0, instance:com.CapstoneProject.CapstoneProject.register@24c22fe]" started-at="2024-06-17T08:20:28 IST" name="beforeMethod" finished-at="2024-06-17T08:20:28 IST" duration-ms="6" status="PASS">
+        <test-method is-config="true" signature="beforeMethod()[pri:0, instance:com.CapstoneProject.CapstoneProject.login@7ba8c737]" started-at="2024-06-17T16:28:02 IST" name="beforeMethod" finished-at="2024-06-17T16:28:02 IST" duration-ms="18" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- beforeMethod -->
-        <test-method signature="registerNewUser()[pri:1, instance:com.CapstoneProject.CapstoneProject.register@24c22fe]" started-at="2024-06-17T08:20:28 IST" name="registerNewUser" finished-at="2024-06-17T08:20:38 IST" duration-ms="10009" status="PASS">
+        <test-method signature="Invalidpassword()[pri:0, instance:com.CapstoneProject.CapstoneProject.login@7ba8c737]" started-at="2024-06-17T16:28:02 IST" name="Invalidpassword" finished-at="2024-06-17T16:28:14 IST" duration-ms="11661" status="PASS">
           <reporter-output>
           </reporter-output>
-        </test-method> <!-- registerNewUser -->
-        <test-method is-config="true" signature="afterMethod()[pri:0, instance:com.CapstoneProject.CapstoneProject.register@24c22fe]" started-at="2024-06-17T08:20:38 IST" name="afterMethod" finished-at="2024-06-17T08:20:38 IST" duration-ms="346" status="PASS">
+        </test-method> <!-- Invalidpassword -->
+        <test-method is-config="true" signature="afterMethod()[pri:0, instance:com.CapstoneProject.CapstoneProject.login@7ba8c737]" started-at="2024-06-17T16:28:14 IST" name="afterMethod" finished-at="2024-06-17T16:28:15 IST" duration-ms="1462" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- afterMethod -->
-        <test-method signature="invalidRegistration()[pri:2, instance:com.CapstoneProject.CapstoneProject.register@24c22fe]" started-at="2024-06-17T08:20:38 IST" name="invalidRegistration" finished-at="2024-06-17T08:20:59 IST" duration-ms="20738" status="PASS">
+        <test-method signature="emptypassword()[pri:0, instance:com.CapstoneProject.CapstoneProject.login@7ba8c737]" started-at="2024-06-17T16:28:15 IST" name="emptypassword" finished-at="2024-06-17T16:28:28 IST" duration-ms="12412" status="PASS">
           <reporter-output>
           </reporter-output>
-        </test-method> <!-- invalidRegistration -->
-        <test-method is-config="true" signature="beforeMethod()[pri:0, instance:com.CapstoneProject.CapstoneProject.register@24c22fe]" started-at="2024-06-17T08:20:38 IST" name="beforeMethod" finished-at="2024-06-17T08:20:38 IST" duration-ms="0" status="PASS">
+        </test-method> <!-- emptypassword -->
+        <test-method is-config="true" signature="beforeMethod()[pri:0, instance:com.CapstoneProject.CapstoneProject.login@7ba8c737]" started-at="2024-06-17T16:28:15 IST" name="beforeMethod" finished-at="2024-06-17T16:28:15 IST" duration-ms="0" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- beforeMethod -->
-        <test-method is-config="true" signature="afterMethod()[pri:0, instance:com.CapstoneProject.CapstoneProject.register@24c22fe]" started-at="2024-06-17T08:20:59 IST" name="afterMethod" finished-at="2024-06-17T08:20:59 IST" duration-ms="54" status="PASS">
+        <test-method is-config="true" signature="afterMethod()[pri:0, instance:com.CapstoneProject.CapstoneProject.login@7ba8c737]" started-at="2024-06-17T16:28:28 IST" name="afterMethod" finished-at="2024-06-17T16:28:28 IST" duration-ms="86" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- afterMethod -->
-        <test-method is-config="true" signature="close1()[pri:0, instance:com.CapstoneProject.CapstoneProject.register@24c22fe]" started-at="2024-06-17T08:20:59 IST" name="close1" finished-at="2024-06-17T08:21:05 IST" duration-ms="5367" status="PASS">
+        <test-method signature="emptyusername()[pri:0, instance:com.CapstoneProject.CapstoneProject.login@7ba8c737]" started-at="2024-06-17T16:28:28 IST" name="emptyusername" finished-at="2024-06-17T16:28:39 IST" duration-ms="11385" status="PASS">
           <reporter-output>
           </reporter-output>
-        </test-method> <!-- close1 -->
-        <test-method is-config="true" signature="close()[pri:0, instance:com.CapstoneProject.CapstoneProject.register@24c22fe]" started-at="2024-06-17T08:21:05 IST" name="close" finished-at="2024-06-17T08:21:05 IST" duration-ms="16" status="PASS">
+        </test-method> <!-- emptyusername -->
+        <test-method is-config="true" signature="beforeMethod()[pri:0, instance:com.CapstoneProject.CapstoneProject.login@7ba8c737]" started-at="2024-06-17T16:28:28 IST" name="beforeMethod" finished-at="2024-06-17T16:28:28 IST" duration-ms="0" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- beforeMethod -->
+        <test-method is-config="true" signature="afterMethod()[pri:0, instance:com.CapstoneProject.CapstoneProject.login@7ba8c737]" started-at="2024-06-17T16:28:39 IST" name="afterMethod" finished-at="2024-06-17T16:28:39 IST" duration-ms="77" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- afterMethod -->
+        <test-method signature="invalidusername()[pri:0, instance:com.CapstoneProject.CapstoneProject.login@7ba8c737]" started-at="2024-06-17T16:28:39 IST" name="invalidusername" finished-at="2024-06-17T16:28:51 IST" duration-ms="11318" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- invalidusername -->
+        <test-method is-config="true" signature="beforeMethod()[pri:0, instance:com.CapstoneProject.CapstoneProject.login@7ba8c737]" started-at="2024-06-17T16:28:39 IST" name="beforeMethod" finished-at="2024-06-17T16:28:39 IST" duration-ms="0" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- beforeMethod -->
+        <test-method is-config="true" signature="afterMethod()[pri:0, instance:com.CapstoneProject.CapstoneProject.login@7ba8c737]" started-at="2024-06-17T16:28:51 IST" name="afterMethod" finished-at="2024-06-17T16:28:51 IST" duration-ms="102" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- afterMethod -->
+        <test-method signature="testLogin()[pri:0, instance:com.CapstoneProject.CapstoneProject.login@7ba8c737]" started-at="2024-06-17T16:28:51 IST" name="testLogin" finished-at="2024-06-17T16:29:02 IST" duration-ms="11496" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- testLogin -->
+        <test-method is-config="true" signature="beforeMethod()[pri:0, instance:com.CapstoneProject.CapstoneProject.login@7ba8c737]" started-at="2024-06-17T16:28:51 IST" name="beforeMethod" finished-at="2024-06-17T16:28:51 IST" duration-ms="0" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- beforeMethod -->
+        <test-method is-config="true" signature="afterMethod()[pri:0, instance:com.CapstoneProject.CapstoneProject.login@7ba8c737]" started-at="2024-06-17T16:29:02 IST" name="afterMethod" finished-at="2024-06-17T16:29:02 IST" duration-ms="158" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- afterMethod -->
+        <test-method is-config="true" signature="close()[pri:0, instance:com.CapstoneProject.CapstoneProject.login@7ba8c737]" started-at="2024-06-17T16:29:02 IST" name="close" finished-at="2024-06-17T16:29:03 IST" duration-ms="618" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- close -->
-      </class> <!-- com.CapstoneProject.CapstoneProject.register -->
+      </class> <!-- com.CapstoneProject.CapstoneProject.login -->
     </test> <!-- Default test -->
   </suite> <!-- Default suite -->
 </testng-results>
