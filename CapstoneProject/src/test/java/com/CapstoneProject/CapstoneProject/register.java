@@ -1,6 +1,18 @@
 package com.CapstoneProject.CapstoneProject;
 
-import java.time.Duration;
+import org.apache.commons.io.FileUtils;
+import org.apache.poi.ss.usermodel.*;
+import org.apache.poi.xssf.usermodel.XSSFWorkbook;
+import org.openqa.selenium.*;
+import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.chrome.ChromeOptions;
+import org.testng.Assert;
+import org.testng.annotations.*;
+
+import java.io.File;
+import java.io.FileInputStream;
+import java.io.IOException;
+import java.util.concurrent.TimeUnit;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
@@ -10,87 +22,84 @@ import org.testng.annotations.AfterClass;
 import org.testng.annotations.Test;
 
 public class register extends baseclass{
-	String baseUrl = "https://jpetstore.aspectran.com/";
+    @DataProvider(name = "registrationData")
+    public Object[][] registrationData() throws IOException {
+        String excelFilePath = "D://Wipro//Project//registration_data.xlsx";
+        FileInputStream inputStream = new FileInputStream(excelFilePath);
+        Workbook workbook = new XSSFWorkbook(inputStream);
+        Sheet sheet = workbook.getSheetAt(0);
 
-	 @Test(priority = 1)
-	    public void registerNewUser() throws Exception {
-	        driver.get(baseUrl);
+        int rowCount = sheet.getPhysicalNumberOfRows();
+        Object[][] data = new Object[rowCount - 1][sheet.getRow(0).getPhysicalNumberOfCells()];
 
-	        driver.findElement(By.linkText("Sign In")).click();
+        for (int i = 1; i < rowCount; i++) {
+            Row row = sheet.getRow(i);
+            for (int j = 0; j < row.getPhysicalNumberOfCells(); j++) {
+                Cell cell = row.getCell(j);
+                data[i - 1][j] = cell.toString();
+            }
+        }
+        workbook.close();
+        inputStream.close();
+        return data;
+    }
 
-	        driver.findElement(By.xpath("//a[normalize-space()='Register Now!']")).click();
+    @Test(dataProvider = "registrationData")
+    public void testRegistration(String userId, String newPassword, String confirmPassword, String firstName,
+                                 String lastName, String email, String phone, String address1, String address2,
+                                 String city, String state, String zip, String country, String languagePreference,
+                                 String favouriteCategory) throws IOException {
+        
+        
+        driver.findElement(By.xpath("//*[@id=\"MenuContent\"]/a[3]")).click();
+       // driver.findElement(By.linkText("Register Now!")).click();
 
-	        driver.findElement(By.name("username")).sendKeys("testusa2231");
-	        driver.findElement(By.name("password")).sendKeys("testusera@221");
-	        driver.findElement(By.name("repeatedPassword")).sendKeys("testusera@221");
-	        driver.findElement(By.name("firstName")).sendKeys("Ananth");
-	        driver.findElement(By.name("lastName")).sendKeys("Reddyyy");
-	        driver.findElement(By.name("email")).sendKeys("testus325@gmail.com");
-	        driver.findElement(By.name("phone")).sendKeys("9945623541");
-	        driver.findElement(By.name("address1")).sendKeys("TDOnnr23009");
-	        driver.findElement(By.name("address2")).sendKeys("Near AMB");
-	        driver.findElement(By.name("city")).sendKeys("vizag");
-	        driver.findElement(By.name("state")).sendKeys("AndhraPradesh");
-	        driver.findElement(By.name("zip")).sendKeys("533499");
-	        driver.findElement(By.name("country")).sendKeys("India");
+        driver.findElement(By.name("username")).sendKeys(userId);
+        driver.findElement(By.name("password")).sendKeys(newPassword);
+        driver.findElement(By.name("repeatedPassword")).sendKeys(confirmPassword);
+        driver.findElement(By.name("firstName")).sendKeys(firstName);
+        driver.findElement(By.name("lastName")).sendKeys(lastName);
+        driver.findElement(By.name("email")).sendKeys(email);
+        driver.findElement(By.name("phone")).sendKeys(phone);
+        driver.findElement(By.name("address1")).sendKeys(address1);
+        driver.findElement(By.name("address2")).sendKeys(address2);
+        driver.findElement(By.name("city")).sendKeys(city);
+        driver.findElement(By.name("state")).sendKeys(state);
+        driver.findElement(By.name("zip")).sendKeys(zip);
+        driver.findElement(By.name("country")).sendKeys(country);
 
-	        Thread.sleep(4000);
+        WebElement languageSelect = driver.findElement(By.name("languagePreference"));
+        languageSelect.sendKeys(languagePreference);
 
-	        driver.findElement(By.xpath("//button[normalize-space()='Save Account Information']")).click();
-	        Thread.sleep(2000);
-	        String currentUrl = driver.getCurrentUrl();
-	        System.out.println(currentUrl);
-	        String actualUrl = "https://jpetstore.aspectran.com/account/signonForm?created=true";
-	        System.out.println(actualUrl);
-	        if (currentUrl.equals(actualUrl)) {
-	            System.out.println("RegistrationTest passed");
-	        } else {
-	            System.out.println("Registration failed");
-	        }
-	    }
+        WebElement categorySelect = driver.findElement(By.name("favouriteCategoryId"));
+        categorySelect.sendKeys(favouriteCategory);
 
-	    @AfterClass
-	    public void close1() throws InterruptedException {
-	        Thread.sleep(5000);
-	        driver.quit();
-	    }
+        WebElement myListCheckbox = driver.findElement(By.name("listOption"));
+        if (!myListCheckbox.isSelected()) {
+            myListCheckbox.click();
+        }
 
-	    @Test(priority = 2)
-	    public void invalidRegistration() throws InterruptedException {
-	        driver.get(baseUrl);
+        WebElement myBannerCheckbox = driver.findElement(By.name("bannerOption"));
+        if (!myBannerCheckbox.isSelected()) {
+            myBannerCheckbox.click();
+        }
 
-	        driver.findElement(By.linkText("Sign In")).click();
-	        driver.findElement(By.xpath("//a[normalize-space()='Register Now!']")).click();
+        WebElement saveButton = driver.findElement(By.xpath("//*[@id=\"CenterForm\"]/form/div/button"));
+        ((JavascriptExecutor) driver).executeScript("arguments[0].scrollIntoView(true);", saveButton);
+        saveButton.click();
+        try {
+			Thread.sleep(2000);
+		} catch (InterruptedException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
 
-	        // Enter existing username to simulate invalid registration
-	        driver.findElement(By.name("username")).sendKeys("existinguser");
-	        driver.findElement(By.name("password")).sendKeys("testpassword");
-	        driver.findElement(By.name("repeatedPassword")).sendKeys("testpassword");
-	        driver.findElement(By.name("firstName")).sendKeys("John");
-	        driver.findElement(By.name("lastName")).sendKeys("Doe");
-	        driver.findElement(By.name("email")).sendKeys("john.doe@example.com");
-	        driver.findElement(By.name("phone")).sendKeys("1234567ew");
-	        driver.findElement(By.name("address1")).sendKeys("123 Street");
-	        driver.findElement(By.name("city")).sendKeys("New York");
-	        driver.findElement(By.name("state")).sendKeys("NY");
-	        driver.findElement(By.name("zip")).sendKeys("10001");
-	        driver.findElement(By.name("country")).sendKeys("India");
+        WebElement successMessage = driver.findElement(By.xpath("//p[contains(text(), 'Your account has been created.')]"));
+        Assert.assertTrue(successMessage.isDisplayed(), "Registration failed!");
+        takeScreenshot(userId);
 
-	        Thread.sleep(4000);
-
-	        driver.findElement(By.xpath("//button[normalize-space()='Save Account Information']")).click();
-	        Thread.sleep(2000);
-
-	        // Explicit wait for error message to be visible
-	        WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
-	        try {
-	            WebElement errorMessage = wait.until(ExpectedConditions.visibilityOfElementLocated(By.cssSelector("div.messages li")));
-	            assert errorMessage.getText().contains("An account already exists with the same username.");
-	            System.out.println("Invalid Registration test passed.");
-	        } catch (Exception e) {
-	            System.out.println("Invalid Registration test failed. Error message not found.");
-	            // Optionally, takeScreenshot() or log the exception
-	        }
-	    }
-
+      //  File screenshot = ((TakesScreenshot) driver).getScreenshotAs(OutputType.FILE);
+      //  File destinationFile = new File("registration_result_" + userId + ".png");
+      //  FileUtils.copyFile(screenshot, destinationFile);
+    }
 }

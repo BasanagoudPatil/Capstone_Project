@@ -19,13 +19,10 @@ public class productdetails extends baseclass{
         fishSection.click();
         Thread.sleep(4000);
 
-        // Test Large Angelfish
         checkProductDetails("FI-SW-01", "EST-1", "Salt Water fish from Australia", "$16.50", "In stock");
 
-        // Test Small Angelfish
         checkProductDetails("FI-SW-01", "EST-2", "Salt Water fish from Australia", "$16.50", "Back ordered.");
 
-        // Test Tiger Shark
         checkProductDetails("FI-SW-02", "EST-3", "Salt Water fish from Australia", "$18.50", "Back ordered.");
     }
 

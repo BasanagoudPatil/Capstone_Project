@@ -48,24 +48,24 @@ public class payment extends baseclass{
         Sheet sheet = workbook.getSheetAt(0);
         Row row = sheet.getRow(1);
 
-        String cardType = row.getCell(0).getStringCellValue();
-        double cardNumber = row.getCell(1).getNumericCellValue();
-        Date expiryDate = row.getCell(2).getDateCellValue();
-        String firstName = row.getCell(3).getStringCellValue();
-        String lastName = row.getCell(4).getStringCellValue();
-        String address1 = row.getCell(5).getStringCellValue();
-        String address2 = row.getCell(6).getStringCellValue();
-        String city = row.getCell(7).getStringCellValue();
-        String state = row.getCell(8).getStringCellValue();
-        double zip = row.getCell(9).getNumericCellValue();
-        String country = row.getCell(10).getStringCellValue();
+        String cardType=row.getCell(0).getStringCellValue();
+        double cardNumber=row.getCell(1).getNumericCellValue();
+        Date expiryDate=row.getCell(2).getDateCellValue();
+        String firstName=row.getCell(3).getStringCellValue();
+        String lastName=row.getCell(4).getStringCellValue();
+        String address1=row.getCell(5).getStringCellValue();
+        String address2=row.getCell(6).getStringCellValue();
+        String city=row.getCell(7).getStringCellValue();
+        String state=row.getCell(8).getStringCellValue();
+        double zip=row.getCell(9).getNumericCellValue();
+        String country=row.getCell(10).getStringCellValue();
 
         file.close();
 
-        String formattedCardNumber = String.valueOf((long) cardNumber);
-        SimpleDateFormat dateFormat = new SimpleDateFormat("MM/yy");
-        String formattedExpiryDate = dateFormat.format(expiryDate);
-        String formattedZip = String.valueOf((int) zip);
+        String formattedCardNumber=String.valueOf((long) cardNumber);
+        SimpleDateFormat dateFormat=new SimpleDateFormat("MM/yy");
+        String formattedExpiryDate=dateFormat.format(expiryDate);
+        String formattedZip=String.valueOf((int) zip);
         
         // Enter payment details
         Select cardTypeSelect = new Select(driver.findElement(By.cssSelector("#CenterForm > form > table:nth-child(4) > tbody > tr:nth-child(1) > td:nth-child(2) > select")));
@@ -112,17 +112,17 @@ public class payment extends baseclass{
         
         
         // Scroll down and click continue
-        WebElement continueButton = driver.findElement(By.xpath("//*[@id=\"CenterForm\"]/form/div/button[1]"));
+        WebElement continueButton=driver.findElement(By.xpath("//*[@id=\"CenterForm\"]/form/div/button[1]"));
         ((RemoteWebDriver) driver).executeScript("arguments[0].scrollIntoView(true);", continueButton);
         continueButton.click();
 
         // Confirm order
-        WebElement confirmButton = driver.findElement(By.xpath("//*[@id=\"CenterForm\"]/form/div/button[1]"));
+        WebElement confirmButton=driver.findElement(By.xpath("//*[@id=\"CenterForm\"]/form/div/button[1]"));
         ((RemoteWebDriver) driver).executeScript("arguments[0].scrollIntoView(true);", confirmButton);
         confirmButton.click();
 
         // Verify order confirmation
-        String confirmationMessage = driver.findElement(By.tagName("body")).getText();
+        String confirmationMessage=driver.findElement(By.tagName("body")).getText();
         Assert.assertTrue(confirmationMessage.contains("Thank you, your order has been submitted."));
     }
 
