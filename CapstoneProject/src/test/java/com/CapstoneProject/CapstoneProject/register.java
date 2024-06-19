@@ -4,27 +4,18 @@ import org.apache.commons.io.FileUtils;
 import org.apache.poi.ss.usermodel.*;
 import org.apache.poi.xssf.usermodel.XSSFWorkbook;
 import org.openqa.selenium.*;
-import org.openqa.selenium.chrome.ChromeDriver;
-import org.openqa.selenium.chrome.ChromeOptions;
 import org.testng.Assert;
 import org.testng.annotations.*;
+import com.aventstack.extentreports.Status;
 
 import java.io.File;
 import java.io.FileInputStream;
 import java.io.IOException;
-import java.util.concurrent.TimeUnit;
 
-import org.openqa.selenium.By;
-import org.openqa.selenium.WebElement;
-import org.openqa.selenium.support.ui.ExpectedConditions;
-import org.openqa.selenium.support.ui.WebDriverWait;
-import org.testng.annotations.AfterClass;
-import org.testng.annotations.Test;
-
-public class register extends baseclass{
+public class register extends baseclass {
     @DataProvider(name = "registrationData")
     public Object[][] registrationData() throws IOException {
-        String excelFilePath = "D://Wipro//Project//registration_data.xlsx";
+        String excelFilePath = "./excel_sheet/registration_data.xlsx";
         FileInputStream inputStream = new FileInputStream(excelFilePath);
         Workbook workbook = new XSSFWorkbook(inputStream);
         Sheet sheet = workbook.getSheetAt(0);
@@ -49,57 +40,100 @@ public class register extends baseclass{
                                  String lastName, String email, String phone, String address1, String address2,
                                  String city, String state, String zip, String country, String languagePreference,
                                  String favouriteCategory) throws IOException {
-        
-        
-        driver.findElement(By.xpath("//*[@id=\"MenuContent\"]/a[3]")).click();
-       // driver.findElement(By.linkText("Register Now!")).click();
+        test = extent.createTest("testRegistration");
 
-        driver.findElement(By.name("username")).sendKeys(userId);
-        driver.findElement(By.name("password")).sendKeys(newPassword);
-        driver.findElement(By.name("repeatedPassword")).sendKeys(confirmPassword);
-        driver.findElement(By.name("firstName")).sendKeys(firstName);
-        driver.findElement(By.name("lastName")).sendKeys(lastName);
-        driver.findElement(By.name("email")).sendKeys(email);
-        driver.findElement(By.name("phone")).sendKeys(phone);
-        driver.findElement(By.name("address1")).sendKeys(address1);
-        driver.findElement(By.name("address2")).sendKeys(address2);
-        driver.findElement(By.name("city")).sendKeys(city);
-        driver.findElement(By.name("state")).sendKeys(state);
-        driver.findElement(By.name("zip")).sendKeys(zip);
-        driver.findElement(By.name("country")).sendKeys(country);
-
-        WebElement languageSelect = driver.findElement(By.name("languagePreference"));
-        languageSelect.sendKeys(languagePreference);
-
-        WebElement categorySelect = driver.findElement(By.name("favouriteCategoryId"));
-        categorySelect.sendKeys(favouriteCategory);
-
-        WebElement myListCheckbox = driver.findElement(By.name("listOption"));
-        if (!myListCheckbox.isSelected()) {
-            myListCheckbox.click();
-        }
-
-        WebElement myBannerCheckbox = driver.findElement(By.name("bannerOption"));
-        if (!myBannerCheckbox.isSelected()) {
-            myBannerCheckbox.click();
-        }
-
-        WebElement saveButton = driver.findElement(By.xpath("//*[@id=\"CenterForm\"]/form/div/button"));
-        ((JavascriptExecutor) driver).executeScript("arguments[0].scrollIntoView(true);", saveButton);
-        saveButton.click();
+        // Navigate to registration page
         try {
-			Thread.sleep(2000);
-		} catch (InterruptedException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
+            driver.findElement(By.xpath("//*[@id=\"MenuContent\"]/a[3]")).click();
+            test.log(Status.INFO, "Navigated to registration page");
+        } catch (Exception e) {
+            test.log(Status.FAIL, "Failed to navigate to registration page");
+            test.fail(e);
+            return;
+        }
 
-        WebElement successMessage = driver.findElement(By.xpath("//p[contains(text(), 'Your account has been created.')]"));
-        Assert.assertTrue(successMessage.isDisplayed(), "Registration failed!");
-        takeScreenshot(userId);
+        // Fill registration form
+        try {
+            driver.findElement(By.name("username")).sendKeys(userId);
+            test.log(Status.INFO, "Entered username");
 
-      //  File screenshot = ((TakesScreenshot) driver).getScreenshotAs(OutputType.FILE);
-      //  File destinationFile = new File("registration_result_" + userId + ".png");
-      //  FileUtils.copyFile(screenshot, destinationFile);
+            driver.findElement(By.name("password")).sendKeys(newPassword);
+            test.log(Status.INFO, "Entered password");
+
+            driver.findElement(By.name("repeatedPassword")).sendKeys(confirmPassword);
+            test.log(Status.INFO, "Entered confirm password");
+
+            driver.findElement(By.name("firstName")).sendKeys(firstName);
+            test.log(Status.INFO, "Entered first name");
+
+            driver.findElement(By.name("lastName")).sendKeys(lastName);
+            test.log(Status.INFO, "Entered last name");
+
+            driver.findElement(By.name("email")).sendKeys(email);
+            test.log(Status.INFO, "Entered email");
+
+            driver.findElement(By.name("phone")).sendKeys(phone);
+            test.log(Status.INFO, "Entered phone");
+
+            driver.findElement(By.name("address1")).sendKeys(address1);
+            test.log(Status.INFO, "Entered address1");
+
+            driver.findElement(By.name("address2")).sendKeys(address2);
+            test.log(Status.INFO, "Entered address2");
+
+            driver.findElement(By.name("city")).sendKeys(city);
+            test.log(Status.INFO, "Entered city");
+
+            driver.findElement(By.name("state")).sendKeys(state);
+            test.log(Status.INFO, "Entered state");
+
+            driver.findElement(By.name("zip")).sendKeys(zip);
+            test.log(Status.INFO, "Entered zip");
+
+            driver.findElement(By.name("country")).sendKeys(country);
+            test.log(Status.INFO, "Entered country");
+
+            WebElement languageSelect = driver.findElement(By.name("languagePreference"));
+            languageSelect.sendKeys(languagePreference);
+            test.log(Status.INFO, "Selected language preference");
+
+            WebElement categorySelect = driver.findElement(By.name("favouriteCategoryId"));
+            categorySelect.sendKeys(favouriteCategory);
+            test.log(Status.INFO, "Selected favourite category");
+
+            WebElement myListCheckbox = driver.findElement(By.name("listOption"));
+            if (!myListCheckbox.isSelected()) {
+                myListCheckbox.click();
+            }
+            test.log(Status.INFO, "Selected myList option");
+
+            WebElement myBannerCheckbox = driver.findElement(By.name("bannerOption"));
+            if (!myBannerCheckbox.isSelected()) {
+                myBannerCheckbox.click();
+            }
+            test.log(Status.INFO, "Selected myBanner option");
+
+            WebElement saveButton = driver.findElement(By.xpath("//*[@id=\"CenterForm\"]/form/div/button"));
+            ((JavascriptExecutor) driver).executeScript("arguments[0].scrollIntoView(true);", saveButton);
+            saveButton.click();
+            test.log(Status.INFO, "Clicked on save button");
+        } catch (Exception e) {
+            test.log(Status.FAIL, "Failed to fill the registration form");
+            test.fail(e);
+            return;
+        }
+
+        // Verify registration success
+        try {
+            Thread.sleep(2000); // Wait for the success message to appear
+            WebElement successMessage = driver.findElement(By.xpath("//p[contains(text(), 'Your account has been created.')]"));
+            Assert.assertTrue(successMessage.isDisplayed(), "Registration failed!");
+            test.log(Status.PASS, "Registration successful");
+            takeScreenshot(userId);
+        } catch (Exception e) {
+            test.log(Status.FAIL, "Registration verification failed");
+            test.fail(e);
+            return;
+        }
     }
 }

@@ -14,7 +14,6 @@ public class search extends baseclass {
 
     @Test(priority = 0)
     public void findsearchbox() throws InterruptedException, IOException {
-        test = extent.createTest("findsearchbox");
         try {
             driver.get("https://jpetstore.aspectran.com/");
             WebElement searchbox = driver.findElement(By.xpath("//*[@id=\"SearchContent\"]/form/div/input"));

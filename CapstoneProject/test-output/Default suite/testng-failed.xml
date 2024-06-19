@@ -3,15 +3,15 @@
 <suite name="Failed suite [Default suite]" guice-stage="DEVELOPMENT">
   <test thread-count="5" name="Default test(failed)">
     <classes>
-      <class name="com.CapstoneProject.CapstoneProject.register">
+      <class name="com.CapstoneProject.CapstoneProject.payment">
         <methods>
           <include name="beforeMethod"/>
-          <include name="testRegistration" invocation-numbers="0 1"/>
+          <include name="testOrderProcess"/>
           <include name="setup"/>
           <include name="afterMethod"/>
           <include name="close"/>
         </methods>
-      </class> <!-- com.CapstoneProject.CapstoneProject.register -->
+      </class> <!-- com.CapstoneProject.CapstoneProject.payment -->
     </classes>
   </test> <!-- Default test(failed) -->
 </suite> <!-- Failed suite [Default suite] -->

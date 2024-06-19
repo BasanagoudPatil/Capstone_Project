@@ -1,202 +1,127 @@
 package com.CapstoneProject.CapstoneProject;
 
-import static org.testng.Assert.assertEquals;
-
-import java.io.File;
 import java.io.IOException;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.JavascriptExecutor;
-import org.openqa.selenium.OutputType;
-import org.openqa.selenium.TakesScreenshot;
 import org.openqa.selenium.WebElement;
-import org.openqa.selenium.io.FileHandler;
 import org.testng.Assert;
 import org.testng.annotations.Test;
+import com.aventstack.extentreports.Status;
 
-public class login extends baseclass{
-	@Test
+public class login extends baseclass {
+
+    @Test
     public void testLogin() throws InterruptedException, IOException {
-        // Open the login page
-    	
-        driver.get("https://jpetstore.aspectran.com/");
-        
-        //Click on the Sign in button
-        
-        WebElement signin = driver.findElement(By.cssSelector("a[href='/account/signonForm']"));
-        signin.click();
-        Thread.sleep(2000);
+        test = extent.createTest("testLogin");
 
-        // Find the username and password input fields
-        
-       WebElement usernameField = driver.findElement(By.xpath("//input[@name='username']"));
-       WebElement passwordField = driver.findElement(By.xpath("//input[@name='password']"));
+        try {
+            WebElement signin = driver.findElement(By.cssSelector("a[href='/account/signonForm']"));
+            signin.click();
+            test.log(Status.INFO, "Clicked on Sign In");
 
-        // Enter login credentials
-        usernameField.clear();
-        passwordField.clear();
-        
-        usernameField.sendKeys("Jpetstore");
-        passwordField.sendKeys("jpet@123");
-        
-        // Find and click the login button
-        
-       WebElement loginButton = driver.findElement(By.xpath("//button[normalize-space()='Login']"));
-       loginButton.click();
-       Thread.sleep(2000);
-       takeScreenshot("validdetails");
-       WebElement Signout = driver.findElement(By.xpath("//a[normalize-space()='Sign Out']"));
-       Signout.click();
-       Thread.sleep(2000);
+            WebElement username = driver.findElement(By.xpath("//input[@name='username']"));
+            username.clear();
+            username.sendKeys(props.getProperty("username"));
+            test.log(Status.INFO, "Entered username");
 
-          
+            WebElement password = driver.findElement(By.xpath("//input[@name='password']"));
+            password.clear();
+            password.sendKeys(props.getProperty("password"));
+            test.log(Status.INFO, "Entered password");
+
+            WebElement login = driver.findElement(By.xpath("//button[normalize-space()='Login']"));
+            login.click();
+            test.log(Status.INFO, "Clicked on Login");
+            
+            Thread.sleep(2000);
+            takeScreenshot("testLogin");
+            test.log(Status.PASS, "Login successful").addScreenCaptureFromPath("screenshots/testLogin.png");
+
+            WebElement signout = driver.findElement(By.xpath("//a[normalize-space()='Sign Out']"));
+            signout.click();
+            test.log(Status.INFO, "Clicked on Sign Out");
+
+            Thread.sleep(3000);
+            test.log(Status.PASS, "Sign Out successful");
+        } catch (Exception e) {
+            test.log(Status.FAIL, "Login test failed");
+            test.fail(e);
+        }
+    }
+
+    @Test
+    public void testInvalidUsernameandpassword() throws InterruptedException, IOException {
+        test = extent.createTest("testInvalidUsernameandpassword");
+
+        try {
+            WebElement signin = driver.findElement(By.cssSelector("a[href='/account/signonForm']"));
+            signin.click();
+            test.log(Status.INFO, "Clicked on Sign In");
+
+            WebElement username = driver.findElement(By.xpath("//input[@name='username']"));
+            username.clear();
+            username.sendKeys(props.getProperty("invalidusername"));
+            test.log(Status.INFO, "Entered invalid username");
+
+            WebElement password = driver.findElement(By.xpath("//input[@name='password']"));
+            password.clear();
+            password.sendKeys(props.getProperty("invalidpassword"));
+            test.log(Status.INFO, "Entered invalid password");
+
+            WebElement login = driver.findElement(By.xpath("//button[normalize-space()='Login']"));
+            login.click();
+            JavascriptExecutor js = (JavascriptExecutor) driver;
+            js.executeScript("window.scrollBy(0, 500)");
+
+            test.log(Status.INFO, "Clicked on Login");
+
+            
+            Thread.sleep(5000);
+            takeScreenshot("testInvalidUsernameandpassword");
+            test.log(Status.PASS, "Invalid login attempt logged").addScreenCaptureFromPath("screenshots/testInvalidUsernameandpassword.png");
+        } catch (Exception e) {
+            test.log(Status.FAIL, "Invalid username and password test failed");
+            test.fail(e);
+        }
+    }
+
+    @Test
+    public void testEmptyusernameandpassword() throws InterruptedException, IOException {
+        test = extent.createTest("testEmptyusernameandpassword");
+
+        try {
+            WebElement signin = driver.findElement(By.cssSelector("a[href='/account/signonForm']"));
+            signin.click();
+            test.log(Status.INFO, "Clicked on Sign In");
+
+            WebElement username = driver.findElement(By.xpath("//input[@name='username']"));
+            username.clear();
+            username.sendKeys(props.getProperty("emptyusername"));
+            test.log(Status.INFO, "Entered empty username");
+
+            WebElement password = driver.findElement(By.xpath("//input[@name='password']"));
+            password.clear();
+            password.sendKeys(props.getProperty("emptypassword"));
+            test.log(Status.INFO, "Entered empty password");
+
+            WebElement login = driver.findElement(By.xpath("//button[normalize-space()='Login']"));
+            login.click();
+            JavascriptExecutor js = (JavascriptExecutor) driver;
+            js.executeScript("window.scrollBy(0, 500)");
+
+            test.log(Status.INFO, "Clicked on Login");
+            
+            Thread.sleep(5000);
+            takeScreenshot("testEmptyusernameandpassword");
+            test.log(Status.PASS, "Empty login attempt logged").addScreenCaptureFromPath("screenshots/testEmptyusernameandpassword.png");
+
+            WebElement errormessage = driver.findElement(By.xpath("//div[@class='panel failed']"));
+            Assert.assertTrue(errormessage.isDisplayed());
+            test.log(Status.PASS, "Error message displayed for empty username and password");
+        } catch (Exception e) {
+            test.log(Status.FAIL, "Empty username and password test failed");
+            test.fail(e);
+        }
+    }
 }
-	@Test
-    public void Invalidpassword() throws InterruptedException, IOException {
-        // Open the login page
-        driver.get("https://jpetstore.aspectran.com/");
-
-        // Click on the Sign in button
-        WebElement signin = driver.findElement(By.cssSelector("a[href='/account/signonForm']"));
-        signin.click();
-        Thread.sleep(2000);
-
-        // Find the username and password input fields
-        WebElement usernameField = driver.findElement(By.xpath("//input[@name='username']"));
-        WebElement passwordField = driver.findElement(By.xpath("//input[@name='password']"));
-
-        // Enter invalid login credentials
-        usernameField.clear();
-        passwordField.clear();
-
-        usernameField.sendKeys("Jpetstoree");
-        passwordField.sendKeys("invalid");
-
-        // Find and click the login button
-        WebElement loginButton = driver.findElement(By.xpath("//button[normalize-space()='Login']"));
-        loginButton.click();
-        JavascriptExecutor js = (JavascriptExecutor)driver;
-		js.executeScript("window.scrollBy(0, 350)");
-		
-        Thread.sleep(2000);
-        takeScreenshot("invalidpassword");
-        
-        // Verify the login failed by checking for an error message or remaining on the same page
-        WebElement errorMessage = driver.findElement(By.xpath("//div[@class='panel failed']")); 
-        Assert.assertTrue(errorMessage.isDisplayed(), "Invalid username or password. Signon failed.");
-        Thread.sleep(4000);
-    
- 
- }
-	@Test
-    public void invalidusername() throws InterruptedException, IOException {
-        // Open the login page
-        driver.get("https://jpetstore.aspectran.com/");
-
-        // Click on the Sign in button
-        WebElement signin = driver.findElement(By.cssSelector("a[href='/account/signonForm']"));
-        signin.click();
-        Thread.sleep(2000);
-
-        // Find the username and password input fields
-        WebElement usernameField = driver.findElement(By.xpath("//input[@name='username']"));
-        WebElement passwordField = driver.findElement(By.xpath("//input[@name='password']"));
-
-        // Enter invalid login credentials
-        usernameField.clear();
-        passwordField.clear();
-
-        usernameField.sendKeys("invalid");
-        passwordField.sendKeys("jpet@123");
-
-        // Find and click the login button
-        WebElement loginButton = driver.findElement(By.xpath("//button[normalize-space()='Login']"));
-        loginButton.click();
-        JavascriptExecutor js = (JavascriptExecutor)driver;
-		js.executeScript("window.scrollBy(0, 350)");
-		
-        Thread.sleep(2000);
-        takeScreenshot("invalidusername");
-       
-        // Verify the login failed by checking for an error message or remaining on the same page
-        WebElement errorMessage = driver.findElement(By.xpath("//div[@class='panel failed']")); 
-        Assert.assertTrue(errorMessage.isDisplayed(), "Invalid username or password. Signon failed.");
-        Thread.sleep(4000);
-   
- }
-	@Test
-    public void emptyusername() throws InterruptedException, IOException {
-        // Open the login page
-        driver.get("https://jpetstore.aspectran.com/");
-
-        // Click on the Sign in button
-        WebElement signin = driver.findElement(By.cssSelector("a[href='/account/signonForm']"));
-        signin.click();
-        Thread.sleep(2000);
-
-        // Find the username and password input fields
-        WebElement usernameField = driver.findElement(By.xpath("//input[@name='username']"));
-        WebElement passwordField = driver.findElement(By.xpath("//input[@name='password']"));
-
-        // Enter invalid login credentials
-        usernameField.clear();
-        passwordField.clear();
-
-        usernameField.sendKeys("");
-        passwordField.sendKeys("jpet@123");
-
-        // Find and click the login button
-        WebElement loginButton = driver.findElement(By.xpath("//button[normalize-space()='Login']"));
-        loginButton.click();
-        JavascriptExecutor js = (JavascriptExecutor)driver;
-		js.executeScript("window.scrollBy(0, 350)");
-		
-        Thread.sleep(2000);
-        takeScreenshot("emptyusername");
-       
-        // Verify the login failed by checking for an error message or remaining on the same page
-        WebElement errorMessage = driver.findElement(By.xpath("//div[@class='panel failed']")); 
-        Assert.assertTrue(errorMessage.isDisplayed(), "Invalid username or password. Signon failed.");
-        Thread.sleep(4000);
-    
- 
- }
-	@Test
-    public void emptypassword() throws InterruptedException, IOException {
-        // Open the login page
-        driver.get("https://jpetstore.aspectran.com/");
-
-        // Click on the Sign in button
-        WebElement signin = driver.findElement(By.cssSelector("a[href='/account/signonForm']"));
-        signin.click();
-        Thread.sleep(2000);
-
-        // Find the username and password input fields
-        WebElement usernameField = driver.findElement(By.xpath("//input[@name='username']"));
-        WebElement passwordField = driver.findElement(By.xpath("//input[@name='password']"));
-
-        // Enter invalid login credentials
-        usernameField.clear();
-        passwordField.clear();
-
-        usernameField.sendKeys("Jpetstoree");
-        passwordField.sendKeys("");
-
-        // Find and click the login button
-        WebElement loginButton = driver.findElement(By.xpath("//button[normalize-space()='Login']"));
-        loginButton.click();
-        JavascriptExecutor js = (JavascriptExecutor)driver;
-		js.executeScript("window.scrollBy(0, 350)");
-		
-        Thread.sleep(2000);
-        takeScreenshot("emptypassword");
-        // Verify the login failed by checking for an error message or remaining on the same page
-        WebElement errorMessage = driver.findElement(By.xpath("//div[@class='panel failed']")); 
-        Assert.assertTrue(errorMessage.isDisplayed(), "Invalid username or password. Signon failed.");
-        Thread.sleep(4000);
-
- }
-	
-}
-
-

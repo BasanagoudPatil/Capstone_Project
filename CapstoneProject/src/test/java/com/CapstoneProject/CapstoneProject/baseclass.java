@@ -23,11 +23,14 @@ import com.aventstack.extentreports.ExtentTest;
 import com.aventstack.extentreports.Status;
 import com.aventstack.extentreports.reporter.ExtentSparkReporter;
 
+import cart.SelectBrowserBase;
+
 public class baseclass {
     WebDriver driver;
     ExtentReports extent;
     ExtentTest test;
     Properties props;
+    SelectBrowserBase selectBrowserBase;
 
     @BeforeClass
     public void setup() throws FileNotFoundException, IOException {
@@ -35,17 +38,15 @@ public class baseclass {
         ExtentSparkReporter spark = new ExtentSparkReporter("./extent-reports/extent-report.html");
         extent = new ExtentReports();
         extent.attachReporter(spark);
-        
+        selectBrowserBase=new SelectBrowserBase(driver);
+    	driver=SelectBrowserBase.selectBrowser("edge");
         props = new Properties();
-        props.load(new FileInputStream("D:\\Wipro\\Project\\CapstoneProject\\src\\test\\java\\data.properties"));
+        props.load(new FileInputStream("./src/test/java/data.properties"));
 
-        System.setProperty("webdriver.chrome.driver", "D:/Wipro/Project/driver/chromedriver-win64/chromedriver.exe");
-        driver = new ChromeDriver();
+        //System.setProperty("webdriver.chrome.driver", "D:/Wipro/Project/driver/chromedriver-win64/chromedriver.exe");
+       // driver = new ChromeDriver();
         driver.navigate().to("https://jpetstore.aspectran.com/");
-        //ChromeOptions options = new ChromeOptions();
-        //options.addArguments("--start-maximized");
-       // driver = new ChromeDriver(options);
-
+        
         driver.manage().window().maximize();
         driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(10));
     }
