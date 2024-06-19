@@ -35,12 +35,12 @@ public class baseclass {
     @BeforeClass
     public void setup() throws FileNotFoundException, IOException {
     	
-        ExtentSparkReporter spark = new ExtentSparkReporter("./extent-reports/extent-report.html");
-        extent = new ExtentReports();
+        ExtentSparkReporter spark=new ExtentSparkReporter("./extent-reports/extent-report.html");
+        extent=new ExtentReports();
         extent.attachReporter(spark);
         selectBrowserBase=new SelectBrowserBase(driver);
     	driver=SelectBrowserBase.selectBrowser("edge");
-        props = new Properties();
+        props=new Properties();
         props.load(new FileInputStream("./src/test/java/data.properties"));
 
         //System.setProperty("webdriver.chrome.driver", "D:/Wipro/Project/driver/chromedriver-win64/chromedriver.exe");
@@ -53,7 +53,7 @@ public class baseclass {
 
     @BeforeMethod
     public void beforeMethod() {
-        test = extent.createTest("Test Case: " + this.getClass().getName());
+        test=extent.createTest("Test Case: " + this.getClass().getName());
     }
 
     @AfterMethod
@@ -68,7 +68,7 @@ public class baseclass {
     }
 
     public void takeScreenshot(String fileName) throws IOException {
-        File screenshot = ((TakesScreenshot) driver).getScreenshotAs(OutputType.FILE);
-        FileHandler.copy(screenshot, new File("./screenshots/" + fileName + ".png"));
+        File screenshot=((TakesScreenshot) driver).getScreenshotAs(OutputType.FILE);
+        FileHandler.copy(screenshot, new File("./screenshots/"+fileName+".png"));
     }
 }

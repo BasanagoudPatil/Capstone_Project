@@ -12,11 +12,11 @@ import com.aventstack.extentreports.Status;
 
 public class search extends baseclass {
 
-    @Test(priority = 0)
+    @Test(priority=0)
     public void findsearchbox() throws InterruptedException, IOException {
         try {
             driver.get("https://jpetstore.aspectran.com/");
-            WebElement searchbox = driver.findElement(By.xpath("//*[@id=\"SearchContent\"]/form/div/input"));
+            WebElement searchbox=driver.findElement(By.xpath("//*[@id=\"SearchContent\"]/form/div/input"));
             takeScreenshot("findsearchbox");
             test.log(Status.PASS, "Search box found and screenshot taken");
         } catch (Exception e) {
@@ -26,11 +26,11 @@ public class search extends baseclass {
         Thread.sleep(2000);
     }
 
-    @Test(priority = 1)
+    @Test(priority=1)
     public void sendkeys() throws InterruptedException, IOException {
-        test = extent.createTest("sendkeys");
+        test=extent.createTest("sendkeys");
         try {
-            String item = "Dog";
+            String item="Dog";
             driver.get("https://jpetstore.aspectran.com/");
             WebElement searchbox = driver.findElement(By.xpath("//*[@id=\"SearchContent\"]/form/div/input"));
             searchbox.sendKeys(item);
@@ -43,23 +43,23 @@ public class search extends baseclass {
         Thread.sleep(2000);
     }
 
-    @Test(priority = 2)
+    @Test(priority=2)
     public void search() throws InterruptedException, IOException {
         test = extent.createTest("search");
         try {
             driver.get("https://jpetstore.aspectran.com/");
-            WebElement searchbox = driver.findElement(By.xpath("//*[@id=\"SearchContent\"]/form/div/input"));
+            WebElement searchbox=driver.findElement(By.xpath("//*[@id=\"SearchContent\"]/form/div/input"));
             searchbox.sendKeys("Fish");
-            WebElement search = driver.findElement(By.cssSelector("#SearchContent > form > div > div > button"));
+            WebElement search=driver.findElement(By.cssSelector("#SearchContent > form > div > div > button"));
             search.click();
-            WebElement tableBody = driver.findElement(By.xpath("//*[@id=\"Catalog\"]/table/tbody"));
+            WebElement tableBody=driver.findElement(By.xpath("//*[@id=\"Catalog\"]/table/tbody"));
             List<WebElement> rows = tableBody.findElements(By.tagName("tr"));
 
-            boolean hasDataRows = false;
+            boolean hasDataRows=false;
             for (WebElement row : rows) {
                 List<WebElement> cells = row.findElements(By.tagName("td"));
-                if (cells.size() > 0) {
-                    hasDataRows = true;
+                if (cells.size()>0) {
+                    hasDataRows=true;
                     break;
                 }
             }
@@ -73,16 +73,16 @@ public class search extends baseclass {
         Thread.sleep(2000);
     }
 
-    @Test(priority = 3)
+    @Test(priority=3)
     public void validsearch() throws IOException {
-        test = extent.createTest("validsearch");
+        test=extent.createTest("validsearch");
         try {
-            String item = "goldfish";
-            WebElement searchbox = driver.findElement(By.xpath("//*[@id=\"SearchContent\"]/form/div/input"));
+            String item="goldfish";
+            WebElement searchbox=driver.findElement(By.xpath("//*[@id=\"SearchContent\"]/form/div/input"));
             searchbox.sendKeys(item);
             searchbox.submit();
 
-            WebElement result = driver.findElement(By.xpath("//*[@id=\"Catalog\"]/table/tbody/tr[2]/td[2]"));
+            WebElement result=driver.findElement(By.xpath("//*[@id=\"Catalog\"]/table/tbody/tr[2]/td[2]"));
             takeScreenshot("validsearch");
             Assert.assertTrue(result.getText().toLowerCase().contains(item), "Search result failed to get valid result");
             test.log(Status.PASS, "Valid search, screenshot taken");
@@ -92,23 +92,23 @@ public class search extends baseclass {
         }
     }
 
-    @Test(priority = 4)
+    @Test(priority=4)
     public void emptysearch() throws InterruptedException, IOException {
         test = extent.createTest("emptysearch");
         try {
-            WebElement searchbox = driver.findElement(By.xpath("//*[@id=\"SearchContent\"]/form/div/input"));
+            WebElement searchbox=driver.findElement(By.xpath("//*[@id=\"SearchContent\"]/form/div/input"));
             searchbox.clear();
             searchbox.submit();
             Thread.sleep(2000);
 
-            WebElement tableBody = driver.findElement(By.xpath("//*[@id=\"Catalog\"]/table/tbody"));
-            List<WebElement> rows = tableBody.findElements(By.tagName("tr"));
+            WebElement tableBody=driver.findElement(By.xpath("//*[@id=\"Catalog\"]/table/tbody"));
+            List<WebElement> rows=tableBody.findElements(By.tagName("tr"));
 
-            boolean hasDataRows = false;
-            for (WebElement row : rows) {
-                List<WebElement> cells = row.findElements(By.tagName("td"));
-                if (cells.size() > 0) {
-                    hasDataRows = true;
+            boolean hasDataRows=false;
+            for (WebElement row:rows) {
+                List<WebElement> cells=row.findElements(By.tagName("td"));
+                if (cells.size()>0) {
+                    hasDataRows=true;
                     break;
                 }
             }
@@ -121,23 +121,23 @@ public class search extends baseclass {
         }
     }
 
-    @Test(priority = 5)
+    @Test(priority=5)
     public void invalidsearch() throws IOException {
-        test = extent.createTest("invalidsearch");
+        test=extent.createTest("invalidsearch");
         try {
-            String item = "Invalid search";
-            WebElement searchbox = driver.findElement(By.xpath("//*[@id=\"SearchContent\"]/form/div/input"));
+            String item="Invalid search";
+            WebElement searchbox=driver.findElement(By.xpath("//*[@id=\"SearchContent\"]/form/div/input"));
             searchbox.sendKeys(item);
             searchbox.submit();
 
-            WebElement tableBody = driver.findElement(By.xpath("//*[@id=\"Catalog\"]/table/tbody"));
-            List<WebElement> rows = tableBody.findElements(By.tagName("tr"));
+            WebElement tableBody=driver.findElement(By.xpath("//*[@id=\"Catalog\"]/table/tbody"));
+            List<WebElement> rows=tableBody.findElements(By.tagName("tr"));
 
-            boolean hasDataRows = false;
-            for (WebElement row : rows) {
-                List<WebElement> cells = row.findElements(By.tagName("td"));
-                if (cells.size() > 0) {
-                    hasDataRows = true;
+            boolean hasDataRows=false;
+            for (WebElement row:rows) {
+                List<WebElement> cells=row.findElements(By.tagName("td"));
+                if (cells.size()>0) {
+                    hasDataRows=true;
                     break;
                 }
             }
