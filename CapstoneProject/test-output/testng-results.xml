@@ -1,103 +1,93 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testng-results ignored="0" total="1" passed="0" failed="1" skipped="0">
+<testng-results ignored="0" total="6" passed="6" failed="0" skipped="0">
   <reporter-output>
   </reporter-output>
-  <suite started-at="2024-06-19T17:15:16 IST" name="Default suite" finished-at="2024-06-19T17:15:36 IST" duration-ms="19945">
+  <suite started-at="2024-06-19T18:51:17 IST" name="Default suite" finished-at="2024-06-19T18:52:20 IST" duration-ms="62760">
     <groups>
     </groups>
-    <test started-at="2024-06-19T17:15:16 IST" name="Default test" finished-at="2024-06-19T17:15:36 IST" duration-ms="19945">
-      <class name="com.CapstoneProject.CapstoneProject.payment">
-        <test-method is-config="true" signature="setup()[pri:0, instance:com.CapstoneProject.CapstoneProject.payment@72ef8d15]" started-at="2024-06-19T17:15:16 IST" name="setup" finished-at="2024-06-19T17:15:26 IST" duration-ms="10001" status="PASS">
+    <test started-at="2024-06-19T18:51:17 IST" name="Default test" finished-at="2024-06-19T18:52:20 IST" duration-ms="62760">
+      <class name="com.CapstoneProject.CapstoneProject.search">
+        <test-method is-config="true" signature="setup()[pri:0, instance:com.CapstoneProject.CapstoneProject.search@72ade7e3]" started-at="2024-06-19T18:51:17 IST" name="setup" finished-at="2024-06-19T18:51:31 IST" duration-ms="13669" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- setup -->
-        <test-method is-config="true" signature="beforeMethod()[pri:0, instance:com.CapstoneProject.CapstoneProject.payment@72ef8d15]" started-at="2024-06-19T17:15:26 IST" name="beforeMethod" finished-at="2024-06-19T17:15:26 IST" duration-ms="6" status="PASS">
+        <test-method is-config="true" signature="beforeMethod()[pri:0, instance:com.CapstoneProject.CapstoneProject.search@72ade7e3]" started-at="2024-06-19T18:51:31 IST" name="beforeMethod" finished-at="2024-06-19T18:51:31 IST" duration-ms="18" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- beforeMethod -->
-        <test-method signature="testOrderProcess()[pri:0, instance:com.CapstoneProject.CapstoneProject.payment@72ef8d15]" started-at="2024-06-19T17:15:26 IST" name="testOrderProcess" finished-at="2024-06-19T17:15:34 IST" duration-ms="7149" status="FAIL">
-          <exception class="org.openqa.selenium.NoSuchWindowException">
-            <message>
-              <![CDATA[no such window: target window already closed
-from unknown error: web view not found
-  (Session info: MicrosoftEdge=126.0.2592.61)
-Build info: version: '4.9.0', revision: 'd7057100a6'
-System info: os.name: 'Windows 11', os.arch: 'amd64', os.version: '10.0', java.version: '17.0.7'
-Driver info: org.openqa.selenium.edge.EdgeDriver
-Command: [21e1d6e0e46b0abaddd2a51967720e14, screenshot {}]
-Capabilities {acceptInsecureCerts: false, browserName: MicrosoftEdge, browserVersion: 126.0.2592.61, fedcm:accounts: true, ms:edgeOptions: {debuggerAddress: localhost:56365}, msedge: {msedgedriverVersion: 126.0.2592.61 (12efce1c0fb4..., userDataDir: C:\Users\Admin\AppData\Loca...}, networkConnectionEnabled: false, pageLoadStrategy: normal, platformName: WINDOWS, proxy: Proxy(), se:cdp: ws://localhost:56365/devtoo..., se:cdpVersion: 126.0.2592.61, setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify, webauthn:extension:credBlob: true, webauthn:extension:largeBlob: true, webauthn:extension:minPinLength: true, webauthn:extension:prf: true, webauthn:virtualAuthenticators: true}
-Session ID: 21e1d6e0e46b0abaddd2a51967720e14]]>
-            </message>
-            <full-stacktrace>
-              <![CDATA[org.openqa.selenium.NoSuchWindowException: no such window: target window already closed
-from unknown error: web view not found
-  (Session info: MicrosoftEdge=126.0.2592.61)
-Build info: version: '4.9.0', revision: 'd7057100a6'
-System info: os.name: 'Windows 11', os.arch: 'amd64', os.version: '10.0', java.version: '17.0.7'
-Driver info: org.openqa.selenium.edge.EdgeDriver
-Command: [21e1d6e0e46b0abaddd2a51967720e14, screenshot {}]
-Capabilities {acceptInsecureCerts: false, browserName: MicrosoftEdge, browserVersion: 126.0.2592.61, fedcm:accounts: true, ms:edgeOptions: {debuggerAddress: localhost:56365}, msedge: {msedgedriverVersion: 126.0.2592.61 (12efce1c0fb4..., userDataDir: C:\Users\Admin\AppData\Loca...}, networkConnectionEnabled: false, pageLoadStrategy: normal, platformName: WINDOWS, proxy: Proxy(), se:cdp: ws://localhost:56365/devtoo..., se:cdpVersion: 126.0.2592.61, setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify, webauthn:extension:credBlob: true, webauthn:extension:largeBlob: true, webauthn:extension:minPinLength: true, webauthn:extension:prf: true, webauthn:virtualAuthenticators: true}
-Session ID: 21e1d6e0e46b0abaddd2a51967720e14
-at java.base/jdk.internal.reflect.NativeConstructorAccessorImpl.newInstance0(Native Method)
-at java.base/jdk.internal.reflect.NativeConstructorAccessorImpl.newInstance(NativeConstructorAccessorImpl.java:77)
-at java.base/jdk.internal.reflect.DelegatingConstructorAccessorImpl.newInstance(DelegatingConstructorAccessorImpl.java:45)
-at java.base/java.lang.reflect.Constructor.newInstanceWithCaller(Constructor.java:499)
-at java.base/java.lang.reflect.Constructor.newInstance(Constructor.java:480)
-at org.openqa.selenium.remote.codec.w3c.W3CHttpResponseCodec.createException(W3CHttpResponseCodec.java:200)
-at org.openqa.selenium.remote.codec.w3c.W3CHttpResponseCodec.decode(W3CHttpResponseCodec.java:133)
-at org.openqa.selenium.remote.codec.w3c.W3CHttpResponseCodec.decode(W3CHttpResponseCodec.java:53)
-at org.openqa.selenium.remote.HttpCommandExecutor.execute(HttpCommandExecutor.java:193)
-at org.openqa.selenium.remote.service.DriverCommandExecutor.invokeExecute(DriverCommandExecutor.java:183)
-at org.openqa.selenium.remote.service.DriverCommandExecutor.execute(DriverCommandExecutor.java:158)
-at org.openqa.selenium.remote.RemoteWebDriver.execute(RemoteWebDriver.java:543)
-at org.openqa.selenium.remote.RemoteWebDriver.execute(RemoteWebDriver.java:598)
-at org.openqa.selenium.remote.RemoteWebDriver.execute(RemoteWebDriver.java:602)
-at org.openqa.selenium.remote.RemoteWebDriver.getScreenshotAs(RemoteWebDriver.java:318)
-at com.CapstoneProject.CapstoneProject.baseclass.takeScreenshot(baseclass.java:71)
-at com.CapstoneProject.CapstoneProject.payment.testOrderProcess(payment.java:148)
-at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
-at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:77)
-at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
-at java.base/java.lang.reflect.Method.invoke(Method.java:568)
-at org.testng.internal.invokers.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:141)
-at org.testng.internal.invokers.TestInvoker.invokeMethod(TestInvoker.java:686)
-at org.testng.internal.invokers.TestInvoker.invokeTestMethod(TestInvoker.java:230)
-at org.testng.internal.invokers.MethodRunner.runInSequence(MethodRunner.java:63)
-at org.testng.internal.invokers.TestInvoker$MethodInvocationAgent.invoke(TestInvoker.java:992)
-at org.testng.internal.invokers.TestInvoker.invokeTestMethods(TestInvoker.java:203)
-at org.testng.internal.invokers.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:154)
-at org.testng.internal.invokers.TestMethodWorker.run(TestMethodWorker.java:134)
-at java.base/java.util.ArrayList.forEach(ArrayList.java:1511)
-at org.testng.TestRunner.privateRun(TestRunner.java:739)
-at org.testng.TestRunner.run(TestRunner.java:614)
-at org.testng.SuiteRunner.runTest(SuiteRunner.java:421)
-at org.testng.SuiteRunner.runSequentially(SuiteRunner.java:413)
-at org.testng.SuiteRunner.privateRun(SuiteRunner.java:373)
-at org.testng.SuiteRunner.run(SuiteRunner.java:312)
-at org.testng.SuiteRunnerWorker.runSuite(SuiteRunnerWorker.java:52)
-at org.testng.SuiteRunnerWorker.run(SuiteRunnerWorker.java:95)
-at org.testng.TestNG.runSuitesSequentially(TestNG.java:1274)
-at org.testng.TestNG.runSuitesLocally(TestNG.java:1208)
-at org.testng.TestNG.runSuites(TestNG.java:1112)
-at org.testng.TestNG.run(TestNG.java:1079)
-at org.testng.remote.AbstractRemoteTestNG.run(AbstractRemoteTestNG.java:115)
-at org.testng.remote.RemoteTestNG.initAndRun(RemoteTestNG.java:293)
-at org.testng.remote.RemoteTestNG.main(RemoteTestNG.java:91)
-]]>
-            </full-stacktrace>
-          </exception> <!-- org.openqa.selenium.NoSuchWindowException -->
+        <test-method signature="findsearchbox()[pri:0, instance:com.CapstoneProject.CapstoneProject.search@72ade7e3]" started-at="2024-06-19T18:51:31 IST" name="findsearchbox" finished-at="2024-06-19T18:51:34 IST" duration-ms="3140" status="PASS">
           <reporter-output>
           </reporter-output>
-        </test-method> <!-- testOrderProcess -->
-        <test-method is-config="true" signature="afterMethod()[pri:0, instance:com.CapstoneProject.CapstoneProject.payment@72ef8d15]" started-at="2024-06-19T17:15:34 IST" name="afterMethod" finished-at="2024-06-19T17:15:35 IST" duration-ms="946" status="PASS">
+        </test-method> <!-- findsearchbox -->
+        <test-method is-config="true" signature="afterMethod()[pri:0, instance:com.CapstoneProject.CapstoneProject.search@72ade7e3]" started-at="2024-06-19T18:51:34 IST" name="afterMethod" finished-at="2024-06-19T18:51:35 IST" duration-ms="840" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- afterMethod -->
-        <test-method is-config="true" signature="close()[pri:0, instance:com.CapstoneProject.CapstoneProject.payment@72ef8d15]" started-at="2024-06-19T17:15:35 IST" name="close" finished-at="2024-06-19T17:15:36 IST" duration-ms="1795" status="PASS">
+        <test-method signature="sendkeys()[pri:1, instance:com.CapstoneProject.CapstoneProject.search@72ade7e3]" started-at="2024-06-19T18:51:35 IST" name="sendkeys" finished-at="2024-06-19T18:51:39 IST" duration-ms="3639" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- sendkeys -->
+        <test-method is-config="true" signature="beforeMethod()[pri:0, instance:com.CapstoneProject.CapstoneProject.search@72ade7e3]" started-at="2024-06-19T18:51:35 IST" name="beforeMethod" finished-at="2024-06-19T18:51:35 IST" duration-ms="0" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- beforeMethod -->
+        <test-method is-config="true" signature="afterMethod()[pri:0, instance:com.CapstoneProject.CapstoneProject.search@72ade7e3]" started-at="2024-06-19T18:51:39 IST" name="afterMethod" finished-at="2024-06-19T18:51:39 IST" duration-ms="32" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- afterMethod -->
+        <test-method signature="search()[pri:2, instance:com.CapstoneProject.CapstoneProject.search@72ade7e3]" started-at="2024-06-19T18:51:39 IST" name="search" finished-at="2024-06-19T18:51:53 IST" duration-ms="14105" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- search -->
+        <test-method is-config="true" signature="beforeMethod()[pri:0, instance:com.CapstoneProject.CapstoneProject.search@72ade7e3]" started-at="2024-06-19T18:51:39 IST" name="beforeMethod" finished-at="2024-06-19T18:51:39 IST" duration-ms="0" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- beforeMethod -->
+        <test-method is-config="true" signature="afterMethod()[pri:0, instance:com.CapstoneProject.CapstoneProject.search@72ade7e3]" started-at="2024-06-19T18:51:53 IST" name="afterMethod" finished-at="2024-06-19T18:51:53 IST" duration-ms="83" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- afterMethod -->
+        <test-method signature="validsearch()[pri:3, instance:com.CapstoneProject.CapstoneProject.search@72ade7e3]" started-at="2024-06-19T18:51:53 IST" name="validsearch" finished-at="2024-06-19T18:51:54 IST" duration-ms="1279" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- validsearch -->
+        <test-method is-config="true" signature="beforeMethod()[pri:0, instance:com.CapstoneProject.CapstoneProject.search@72ade7e3]" started-at="2024-06-19T18:51:53 IST" name="beforeMethod" finished-at="2024-06-19T18:51:53 IST" duration-ms="0" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- beforeMethod -->
+        <test-method is-config="true" signature="afterMethod()[pri:0, instance:com.CapstoneProject.CapstoneProject.search@72ade7e3]" started-at="2024-06-19T18:51:54 IST" name="afterMethod" finished-at="2024-06-19T18:51:54 IST" duration-ms="96" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- afterMethod -->
+        <test-method signature="emptysearch()[pri:4, instance:com.CapstoneProject.CapstoneProject.search@72ade7e3]" started-at="2024-06-19T18:51:54 IST" name="emptysearch" finished-at="2024-06-19T18:52:07 IST" duration-ms="13210" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- emptysearch -->
+        <test-method is-config="true" signature="beforeMethod()[pri:0, instance:com.CapstoneProject.CapstoneProject.search@72ade7e3]" started-at="2024-06-19T18:51:54 IST" name="beforeMethod" finished-at="2024-06-19T18:51:54 IST" duration-ms="0" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- beforeMethod -->
+        <test-method is-config="true" signature="afterMethod()[pri:0, instance:com.CapstoneProject.CapstoneProject.search@72ade7e3]" started-at="2024-06-19T18:52:07 IST" name="afterMethod" finished-at="2024-06-19T18:52:08 IST" duration-ms="47" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- afterMethod -->
+        <test-method is-config="true" signature="beforeMethod()[pri:0, instance:com.CapstoneProject.CapstoneProject.search@72ade7e3]" started-at="2024-06-19T18:52:08 IST" name="beforeMethod" finished-at="2024-06-19T18:52:08 IST" duration-ms="3" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- beforeMethod -->
+        <test-method signature="invalidsearch()[pri:5, instance:com.CapstoneProject.CapstoneProject.search@72ade7e3]" started-at="2024-06-19T18:52:08 IST" name="invalidsearch" finished-at="2024-06-19T18:52:19 IST" duration-ms="11291" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- invalidsearch -->
+        <test-method is-config="true" signature="afterMethod()[pri:0, instance:com.CapstoneProject.CapstoneProject.search@72ade7e3]" started-at="2024-06-19T18:52:19 IST" name="afterMethod" finished-at="2024-06-19T18:52:19 IST" duration-ms="34" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- afterMethod -->
+        <test-method is-config="true" signature="close()[pri:0, instance:com.CapstoneProject.CapstoneProject.search@72ade7e3]" started-at="2024-06-19T18:52:19 IST" name="close" finished-at="2024-06-19T18:52:20 IST" duration-ms="1124" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- close -->
-      </class> <!-- com.CapstoneProject.CapstoneProject.payment -->
+      </class> <!-- com.CapstoneProject.CapstoneProject.search -->
     </test> <!-- Default test -->
   </suite> <!-- Default suite -->
 </testng-results>
