@@ -2,88 +2,88 @@
 <testng-results ignored="0" total="6" passed="6" failed="0" skipped="0">
   <reporter-output>
   </reporter-output>
-  <suite started-at="2024-06-19T18:51:17 IST" name="Default suite" finished-at="2024-06-19T18:52:20 IST" duration-ms="62760">
+  <suite started-at="2024-06-20T10:40:36 IST" name="Default suite" finished-at="2024-06-20T10:41:31 IST" duration-ms="55337">
     <groups>
     </groups>
-    <test started-at="2024-06-19T18:51:17 IST" name="Default test" finished-at="2024-06-19T18:52:20 IST" duration-ms="62760">
+    <test started-at="2024-06-20T10:40:36 IST" name="Default test" finished-at="2024-06-20T10:41:31 IST" duration-ms="55337">
       <class name="com.CapstoneProject.CapstoneProject.search">
-        <test-method is-config="true" signature="setup()[pri:0, instance:com.CapstoneProject.CapstoneProject.search@72ade7e3]" started-at="2024-06-19T18:51:17 IST" name="setup" finished-at="2024-06-19T18:51:31 IST" duration-ms="13669" status="PASS">
+        <test-method is-config="true" signature="setup()[pri:0, instance:com.CapstoneProject.CapstoneProject.search@239105a8]" started-at="2024-06-20T10:40:36 IST" name="setup" finished-at="2024-06-20T10:40:46 IST" duration-ms="10184" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- setup -->
-        <test-method is-config="true" signature="beforeMethod()[pri:0, instance:com.CapstoneProject.CapstoneProject.search@72ade7e3]" started-at="2024-06-19T18:51:31 IST" name="beforeMethod" finished-at="2024-06-19T18:51:31 IST" duration-ms="18" status="PASS">
+        <test-method is-config="true" signature="beforeMethod()[pri:0, instance:com.CapstoneProject.CapstoneProject.search@239105a8]" started-at="2024-06-20T10:40:46 IST" name="beforeMethod" finished-at="2024-06-20T10:40:46 IST" duration-ms="9" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- beforeMethod -->
-        <test-method signature="findsearchbox()[pri:0, instance:com.CapstoneProject.CapstoneProject.search@72ade7e3]" started-at="2024-06-19T18:51:31 IST" name="findsearchbox" finished-at="2024-06-19T18:51:34 IST" duration-ms="3140" status="PASS">
+        <test-method signature="findsearchbox()[pri:0, instance:com.CapstoneProject.CapstoneProject.search@239105a8]" started-at="2024-06-20T10:40:46 IST" name="findsearchbox" finished-at="2024-06-20T10:40:49 IST" duration-ms="2835" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- findsearchbox -->
-        <test-method is-config="true" signature="afterMethod()[pri:0, instance:com.CapstoneProject.CapstoneProject.search@72ade7e3]" started-at="2024-06-19T18:51:34 IST" name="afterMethod" finished-at="2024-06-19T18:51:35 IST" duration-ms="840" status="PASS">
+        <test-method is-config="true" signature="afterMethod()[pri:0, instance:com.CapstoneProject.CapstoneProject.search@239105a8]" started-at="2024-06-20T10:40:49 IST" name="afterMethod" finished-at="2024-06-20T10:40:49 IST" duration-ms="337" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- afterMethod -->
-        <test-method signature="sendkeys()[pri:1, instance:com.CapstoneProject.CapstoneProject.search@72ade7e3]" started-at="2024-06-19T18:51:35 IST" name="sendkeys" finished-at="2024-06-19T18:51:39 IST" duration-ms="3639" status="PASS">
+        <test-method signature="sendkeys()[pri:1, instance:com.CapstoneProject.CapstoneProject.search@239105a8]" started-at="2024-06-20T10:40:49 IST" name="sendkeys" finished-at="2024-06-20T10:40:52 IST" duration-ms="2931" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- sendkeys -->
-        <test-method is-config="true" signature="beforeMethod()[pri:0, instance:com.CapstoneProject.CapstoneProject.search@72ade7e3]" started-at="2024-06-19T18:51:35 IST" name="beforeMethod" finished-at="2024-06-19T18:51:35 IST" duration-ms="0" status="PASS">
+        <test-method is-config="true" signature="beforeMethod()[pri:0, instance:com.CapstoneProject.CapstoneProject.search@239105a8]" started-at="2024-06-20T10:40:49 IST" name="beforeMethod" finished-at="2024-06-20T10:40:49 IST" duration-ms="0" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- beforeMethod -->
-        <test-method is-config="true" signature="afterMethod()[pri:0, instance:com.CapstoneProject.CapstoneProject.search@72ade7e3]" started-at="2024-06-19T18:51:39 IST" name="afterMethod" finished-at="2024-06-19T18:51:39 IST" duration-ms="32" status="PASS">
+        <test-method is-config="true" signature="afterMethod()[pri:0, instance:com.CapstoneProject.CapstoneProject.search@239105a8]" started-at="2024-06-20T10:40:52 IST" name="afterMethod" finished-at="2024-06-20T10:40:52 IST" duration-ms="15" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- afterMethod -->
-        <test-method signature="search()[pri:2, instance:com.CapstoneProject.CapstoneProject.search@72ade7e3]" started-at="2024-06-19T18:51:39 IST" name="search" finished-at="2024-06-19T18:51:53 IST" duration-ms="14105" status="PASS">
+        <test-method signature="search()[pri:2, instance:com.CapstoneProject.CapstoneProject.search@239105a8]" started-at="2024-06-20T10:40:52 IST" name="search" finished-at="2024-06-20T10:41:06 IST" duration-ms="13539" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- search -->
-        <test-method is-config="true" signature="beforeMethod()[pri:0, instance:com.CapstoneProject.CapstoneProject.search@72ade7e3]" started-at="2024-06-19T18:51:39 IST" name="beforeMethod" finished-at="2024-06-19T18:51:39 IST" duration-ms="0" status="PASS">
+        <test-method is-config="true" signature="beforeMethod()[pri:0, instance:com.CapstoneProject.CapstoneProject.search@239105a8]" started-at="2024-06-20T10:40:52 IST" name="beforeMethod" finished-at="2024-06-20T10:40:52 IST" duration-ms="0" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- beforeMethod -->
-        <test-method is-config="true" signature="afterMethod()[pri:0, instance:com.CapstoneProject.CapstoneProject.search@72ade7e3]" started-at="2024-06-19T18:51:53 IST" name="afterMethod" finished-at="2024-06-19T18:51:53 IST" duration-ms="83" status="PASS">
+        <test-method is-config="true" signature="afterMethod()[pri:0, instance:com.CapstoneProject.CapstoneProject.search@239105a8]" started-at="2024-06-20T10:41:06 IST" name="afterMethod" finished-at="2024-06-20T10:41:06 IST" duration-ms="32" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- afterMethod -->
-        <test-method signature="validsearch()[pri:3, instance:com.CapstoneProject.CapstoneProject.search@72ade7e3]" started-at="2024-06-19T18:51:53 IST" name="validsearch" finished-at="2024-06-19T18:51:54 IST" duration-ms="1279" status="PASS">
+        <test-method signature="validsearch()[pri:3, instance:com.CapstoneProject.CapstoneProject.search@239105a8]" started-at="2024-06-20T10:41:06 IST" name="validsearch" finished-at="2024-06-20T10:41:06 IST" duration-ms="882" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- validsearch -->
-        <test-method is-config="true" signature="beforeMethod()[pri:0, instance:com.CapstoneProject.CapstoneProject.search@72ade7e3]" started-at="2024-06-19T18:51:53 IST" name="beforeMethod" finished-at="2024-06-19T18:51:53 IST" duration-ms="0" status="PASS">
+        <test-method is-config="true" signature="beforeMethod()[pri:0, instance:com.CapstoneProject.CapstoneProject.search@239105a8]" started-at="2024-06-20T10:41:06 IST" name="beforeMethod" finished-at="2024-06-20T10:41:06 IST" duration-ms="0" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- beforeMethod -->
-        <test-method is-config="true" signature="afterMethod()[pri:0, instance:com.CapstoneProject.CapstoneProject.search@72ade7e3]" started-at="2024-06-19T18:51:54 IST" name="afterMethod" finished-at="2024-06-19T18:51:54 IST" duration-ms="96" status="PASS">
+        <test-method is-config="true" signature="afterMethod()[pri:0, instance:com.CapstoneProject.CapstoneProject.search@239105a8]" started-at="2024-06-20T10:41:06 IST" name="afterMethod" finished-at="2024-06-20T10:41:06 IST" duration-ms="15" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- afterMethod -->
-        <test-method signature="emptysearch()[pri:4, instance:com.CapstoneProject.CapstoneProject.search@72ade7e3]" started-at="2024-06-19T18:51:54 IST" name="emptysearch" finished-at="2024-06-19T18:52:07 IST" duration-ms="13210" status="PASS">
+        <test-method is-config="true" signature="beforeMethod()[pri:0, instance:com.CapstoneProject.CapstoneProject.search@239105a8]" started-at="2024-06-20T10:41:06 IST" name="beforeMethod" finished-at="2024-06-20T10:41:06 IST" duration-ms="0" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- beforeMethod -->
+        <test-method signature="emptysearch()[pri:4, instance:com.CapstoneProject.CapstoneProject.search@239105a8]" started-at="2024-06-20T10:41:06 IST" name="emptysearch" finished-at="2024-06-20T10:41:19 IST" duration-ms="12938" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- emptysearch -->
-        <test-method is-config="true" signature="beforeMethod()[pri:0, instance:com.CapstoneProject.CapstoneProject.search@72ade7e3]" started-at="2024-06-19T18:51:54 IST" name="beforeMethod" finished-at="2024-06-19T18:51:54 IST" duration-ms="0" status="PASS">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- beforeMethod -->
-        <test-method is-config="true" signature="afterMethod()[pri:0, instance:com.CapstoneProject.CapstoneProject.search@72ade7e3]" started-at="2024-06-19T18:52:07 IST" name="afterMethod" finished-at="2024-06-19T18:52:08 IST" duration-ms="47" status="PASS">
+        <test-method is-config="true" signature="afterMethod()[pri:0, instance:com.CapstoneProject.CapstoneProject.search@239105a8]" started-at="2024-06-20T10:41:19 IST" name="afterMethod" finished-at="2024-06-20T10:41:19 IST" duration-ms="46" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- afterMethod -->
-        <test-method is-config="true" signature="beforeMethod()[pri:0, instance:com.CapstoneProject.CapstoneProject.search@72ade7e3]" started-at="2024-06-19T18:52:08 IST" name="beforeMethod" finished-at="2024-06-19T18:52:08 IST" duration-ms="3" status="PASS">
+        <test-method is-config="true" signature="beforeMethod()[pri:0, instance:com.CapstoneProject.CapstoneProject.search@239105a8]" started-at="2024-06-20T10:41:19 IST" name="beforeMethod" finished-at="2024-06-20T10:41:19 IST" duration-ms="1" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- beforeMethod -->
-        <test-method signature="invalidsearch()[pri:5, instance:com.CapstoneProject.CapstoneProject.search@72ade7e3]" started-at="2024-06-19T18:52:08 IST" name="invalidsearch" finished-at="2024-06-19T18:52:19 IST" duration-ms="11291" status="PASS">
+        <test-method signature="invalidsearch()[pri:5, instance:com.CapstoneProject.CapstoneProject.search@239105a8]" started-at="2024-06-20T10:41:19 IST" name="invalidsearch" finished-at="2024-06-20T10:41:30 IST" duration-ms="10918" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- invalidsearch -->
-        <test-method is-config="true" signature="afterMethod()[pri:0, instance:com.CapstoneProject.CapstoneProject.search@72ade7e3]" started-at="2024-06-19T18:52:19 IST" name="afterMethod" finished-at="2024-06-19T18:52:19 IST" duration-ms="34" status="PASS">
+        <test-method is-config="true" signature="afterMethod()[pri:0, instance:com.CapstoneProject.CapstoneProject.search@239105a8]" started-at="2024-06-20T10:41:30 IST" name="afterMethod" finished-at="2024-06-20T10:41:30 IST" duration-ms="47" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- afterMethod -->
-        <test-method is-config="true" signature="close()[pri:0, instance:com.CapstoneProject.CapstoneProject.search@72ade7e3]" started-at="2024-06-19T18:52:19 IST" name="close" finished-at="2024-06-19T18:52:20 IST" duration-ms="1124" status="PASS">
+        <test-method is-config="true" signature="close()[pri:0, instance:com.CapstoneProject.CapstoneProject.search@239105a8]" started-at="2024-06-20T10:41:30 IST" name="close" finished-at="2024-06-20T10:41:31 IST" duration-ms="534" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- close -->
